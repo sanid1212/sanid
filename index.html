@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Defend Strike offers expert cybersecurity assessments for web, mobile, APIs, infrastructure, cloud, and more. Protect your digital assets with precision.">
+    <meta name="keywords" content="cybersecurity, security assessment, penetration testing, web security, mobile security, cloud security">
+    <title>Defend Strike - Cyber Security Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark-red: #8B0000;
+            --secondary-dark-grey: #2C2C2C;
+            --light-grey: #f5f5f5;
+            --white: #ffffff;
+            --dark-text: #333333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--white);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-dark-grey);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .logo h1 {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .logo .tagline {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary-dark-red);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 44, 44, 0.85), rgba(44, 44, 44, 0.85)), url('https://source.unsplash.com/random/1200x600/?cybersecurity') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--primary-dark-red);
+            color: var(--white);
+        }
+        .btn-primary:hover {
+            background-color: #6a0000;
+            transform: translateY(-3px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--secondary-dark-grey);
+            transform: translateY(-3px);
+        }
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-dark-grey);
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-dark-red);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-dark-red);
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-dark-grey);
+        }
+        .service-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .service-details {
+            margin-top: 15px;
+        }
+        .service-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark-red);
+        }
+        /* Methodology Section */
+        .methodology-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .step {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .step-number {
+            background: var(--primary-dark-red);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        /* Industries Section */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .industry-item {
+            padding: 30px 20px;
+            background: var(--light-grey);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .industry-item:hover {
+            transform: translateY(-5px);
+            background: var(--white);
+        }
+        .industry-item i {
+            font-size: 2.5rem;
+            color: var(--primary-dark-red);
+            margin-bottom: 15px;
+        }
+        /* Why Us Section */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .why-us-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .why-us-card i {
+            font-size: 3rem;
+            color: var(--primary-dark-red);
+            margin-bottom: 20px;
+        }
+        .why-us-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-dark-grey);
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .contact-info .contact-item i {
+            color: var(--primary-dark-red);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .contact-form textarea {
+            height: 150px;
+        }
+        /* Footer */
+        footer {
+            background: var(--secondary-dark-grey);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: var(--primary-dark-red);
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #444;
+            border-radius: 50%;
+            color: var(--white);
+            transition: background 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--primary-dark-red);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 20px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Defend Strike</h1>
+                <p class="tagline">Securing Tomorrow's Digital Landscape</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#methodology">Methodology</a></li>
+                    <li><a href="#industries">Industries</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Defending Your Digital Assets with Precision and Expertise</h2>
+            <p>Expert offensive and defensive cybersecurity services tailored for growing organizations and enterprises.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Request Security Assessment</a>
+                <a href="#contact" class="btn btn-secondary">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Defend Strike</h2>
+                <p>Your reliable partner in cybersecurity</p>
+            </div>
+            <p>Defend Strike is a dynamic cybersecurity firm dedicated to providing offensive and defensive security solutions since our inception. Our team of certified experts, including holders of OSCP and CISSP credentials, employs ethical hacking techniques to identify and mitigate vulnerabilities. We focus on compliance with industry standards such as GDPR, HIPAA, and PCI DSS, helping organizations build resilient security postures.</p>
+            <p>As a growth-oriented company, we partner with startups and expanding businesses to deliver enterprise-level security assessments. Our approach prioritizes client trust through transparent processes, detailed reporting, and ongoing support, ensuring your digital assets are protected against evolving threats while aligning with your business objectives.</p>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Security Services</h2>
+                <p>Comprehensive security solutions to protect your digital assets</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <h3>Web Security Assessment</h3>
+                    <p>We dive deep into your web applications, thinking like sophisticated attackers to uncover hidden risks that automated tools overlook.</p>
+                    <div class="service-details">
+                        <h4>Key Vulnerabilities We Target</h4>
+                        <ul>
+                            <li>Common issues like injection attacks, cross-site scripting, and broken access controls from OWASP guidelines.</li>
+                            <li>Advanced threats such as race conditions, server-side request forgery, and prototype pollution that require manual exploration.</li>
+                            <li>Business logic flaws, like manipulating workflows to bypass payment checks or abusing promo codes for unlimited discounts.</li>
+                            <li>Real-world abuse cases, including account takeovers through weak password resets or session fixation.</li>
+                            <li>Role-based access problems where users escalate privileges to view sensitive data.</li>
+                            <li>Authentication weaknesses, authorization gaps, poor session management, and trust boundary violations across components.</li>
+                        </ul>
+                        <h4>Business Impact We Prevent</h4>
+                        <ul>
+                            <li>Financial losses from fraudulent transactions or unauthorized fund transfers.</li>
+                            <li>Data abuse leading to customer identity theft and legal liabilities.</li>
+                            <li>Compliance risks resulting in hefty fines under regulations like GDPR.</li>
+                            <li>Reputation damage from public breaches that erode client trust.</li>
+                        </ul>
+                        <p>Our manual testing expertise simulates complex attack chains, ensuring startups and growing companies stay ahead of threats with practical, actionable insights.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                    <h3>Mobile App Security Assessment</h3>
+                    <p>We scrutinize your mobile apps with an attacker's perspective, revealing subtle flaws in device interactions that scanners can't detect.</p>
+                    <div class="service-details">
+                        <h4>Key Vulnerabilities We Target</h4>
+                        <ul>
+                            <li>Standard risks including insecure data storage, improper platform usage, and insufficient cryptography per OWASP Mobile Top 10.</li>
+                            <li>Out-of-the-box issues like jailbreak detection bypasses, runtime hooking, and side-channel leaks from app behaviors.</li>
+                            <li>Business logic vulnerabilities, such as tampering with local data to fake transactions or exploit in-app purchases.</li>
+                            <li>Real-world scenarios like intercepting sensitive communications or abusing deep links for unauthorized access.</li>
+                            <li>Role-based access flaws allowing standard users to unlock premium features.</li>
+                            <li>Authentication bypasses, authorization inconsistencies, session persistence issues, and trust boundaries in app-to-server exchanges.</li>
+                        </ul>
+                        <h4>Business Impact We Prevent</h4>
+                        <ul>
+                            <li>Financial setbacks from app-based fraud or revenue leaks.</li>
+                            <li>Data misuse exposing user personal information to competitors or criminals.</li>
+                            <li>Compliance violations risking app removal from stores or regulatory penalties.</li>
+                            <li>Reputation hits from user complaints about privacy invasions.</li>
+                        </ul>
+                        <p>Through hands-on reverse engineering and exploitation simulations, we empower emerging businesses to build secure, trustworthy mobile experiences.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code" aria-hidden="true"></i>
+                    <h3>API Security Assessment</h3>
+                    <p>We probe your APIs as interconnected gateways, identifying chained exploits that automated checks miss in dynamic environments.</p>
+                    <div class="service-details">
+                        <h4>Key Vulnerabilities We Target</h4>
+                        <ul>
+                            <li>Core concerns like broken object level authorization, excessive data exposure, and injection flaws aligned with OWASP API Security Top 10.</li>
+                            <li>Advanced vulnerabilities including mass assignment exploits, GraphQL depth attacks, and webhook manipulations.</li>
+                            <li>Business logic errors, such as rate limit bypasses enabling denial-of-service or data scraping.</li>
+                            <li>Real-world abuses like chaining API calls to extract confidential records or forge requests.</li>
+                            <li>Role-based access issues where APIs leak admin endpoints to regular users.</li>
+                            <li>Authentication token weaknesses, authorization scope creeps, session replay risks, and trust boundary crossings in microservices.</li>
+                        </ul>
+                        <h4>Business Impact We Prevent</h4>
+                        <ul>
+                            <li>Financial damage from API-driven fraud or unauthorized resource consumption.</li>
+                            <li>Data exploitation compromising partner integrations and intellectual property.</li>
+                            <li>Compliance failures leading to audits and sanctions.</li>
+                            <li>Reputation erosion from service disruptions affecting customer loyalty.</li>
+                        </ul>
+                        <p>Our attacker-minded manual assessments trace complex paths, helping scaling companies maintain robust, reliable API ecosystems.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-desktop" aria-hidden="true"></i>
+                    <h3>Thick Client Security Assessment</h3>
+                    <p>We dissect your desktop applications layer by layer, uncovering client-side manipulations that evade standard scans.</p>
+                    <div class="service-details">
+                        <h4>Key Vulnerabilities We Target</h4>
+                        <ul>
+                            <li>Fundamental risks such as insecure communications, weak encryption, and improper input validation based on OWASP principles.</li>
+                            <li>Sophisticated threats like memory dumping, DLL injection, and protocol reverse engineering.</li>
+                            <li>Business logic bypasses, including altering client code to approve invalid operations or extract embedded secrets.</li>
+                            <li>Real-world exploitations such as tampering with license checks or forging server responses.</li>
+                            <li>Role-based access vulnerabilities enabling local privilege escalations.</li>
+                            <li>Authentication flaws in stored credentials, authorization mismatches, session hijacking via local storage, and trust boundaries in client-server dialogues.</li>
+                        </ul>
+                        <h4>Business Impact We Prevent</h4>
+                        <ul>
+                            <li>Financial losses through pirated software or manipulated transactions.</li>
+                            <li>Data theft allowing competitors to reverse-engineer proprietary features.</li>
+                            <li>Compliance issues from exposed sensitive local data.</li>
+                            <li>Reputation harm from user-discovered exploits spreading online.</li>
+                        </ul>
+                        <p>With deep manual decompilation and scenario testing, we deliver practical defenses for startups relying on thick clients.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-network-wired" aria-hidden="true"></i>
+                    <h3>Infrastructure/Network Security Assessment</h3>
+                    <p>We map and assault your networks like persistent intruders, exposing lateral movement paths overlooked by automated tools.</p>
+                    <div class="service-details">
+                        <h4>Key Vulnerabilities We Target</h4>
+                        <ul>
+                            <li>Essential weaknesses including misconfigurations, weak protocols, and unpatched systems per OWASP and network best practices.</li>
+                            <li>Advanced exploits like zero-day device vulnerabilities, VLAN hopping, and ARP poisoning variations.</li>
+                            <li>Business logic flaws in network flows, such as bypassing firewalls through trusted zones.</li>
+                            <li>Real-world attacks chaining weak endpoints to pivot into core systems.</li>
+                            <li>Role-based access problems in segmented networks allowing cross-zone intrusions.</li>
+                            <li>Authentication gaps in VPNs, authorization issues in NAC, session management in remote access, and trust boundary flaws between internal segments.</li>
+                        </ul>
+                        <h4>Business Impact We Prevent</h4>
+                        <ul>
+                            <li>Financial disruptions from ransomware locking critical operations.</li>
+                            <li>Data breaches enabling industrial espionage or customer data sales.</li>
+                            <li>Compliance penalties for failing standards like PCI DSS.</li>
+                            <li>Reputation loss from downtime affecting service delivery.</li>
+                        </ul>
+                        <p>Our real-world penetration simulations build resilient networks, fostering trust for growing enterprises.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cloud" aria-hidden="true"></i>
+                    <h3>Cloud Security Assessment</h3>
+                    <p>We navigate your cloud setups with an insider threat lens, revealing configuration chains that scanners fail to connect.</p>
+                    <div class="service-details">
+                        <h4>Key Vulnerabilities We Target</h4>
+                        <ul>
+                            <li>Primary risks like improper access controls, security misconfigurations, and account hijacking from OWASP Cloud Top 10.</li>
+                            <li>Nuanced issues including over-permissive IAM roles, metadata service exploits, and container escape techniques.</li>
+                            <li>Business logic vulnerabilities in cloud workflows, such as abusing auto-scaling for resource exhaustion.</li>
+                            <li>Real-world abuses like cryptojacking through exposed buckets or lateral movement via shared services.</li>
+                            <li>Role-based access flaws granting excessive permissions across tenants.</li>
+                            <li>Authentication weaknesses in MFA setups, authorization drifts, session token exposures, and trust boundary issues in hybrid environments.</li>
+                        </ul>
+                        <h4>Business Impact We Prevent</h4>
+                        <ul>
+                            <li>Financial overages from unauthorized resource usage or data transfer costs.</li>
+                            <li>Data leaks exposing trade secrets to public view.</li>
+                            <li>Compliance risks triggering investigations and fines.</li>
+                            <li>Reputation damage from cloud incidents hitting headlines.</li>
+                        </ul>
+                        <p>Through expert manual audits and exploit proofs, we secure cloud growth for innovative companies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Methodology Section -->
+    <section id="methodology" style="background-color: var(--light-grey);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Security Assessment Methodology</h2>
+                <p>Systematic approach to identify and address security vulnerabilities</p>
+            </div>
+            <div class="methodology-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Scoping</h3>
+                    <p>We collaborate with your team to define scope, assets, and goals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Manual Testing</h3>
+                    <p>Expert-driven security analysis.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Automated Testing</h3>
+                    <p>Comprehensive vulnerability scanning.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Exploitation</h3>
+                    <p>Proof-of-concept validation.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Reporting</h3>
+                    <p>Detailed findings and recommendations.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Remediation Support</h3>
+                    <p>Guidance for vulnerability fixes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Industries Section -->
+    <section id="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries We Serve</h2>
+                <p>Protecting organizations across various sectors</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-item">
+                    <i class="fas fa-university" aria-hidden="true"></i>
+                    <h3>Banks & Financial</h3>
+                    <p>Secure financial data and comply with regulations like PCI DSS.</p>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-building" aria-hidden="true"></i>
+                    <h3>Enterprises</h3>
+                    <p>Enterprise-grade security for large-scale operations.</p>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                    <h3>Tech Startups</h3>
+                    <p>Scalable security solutions for growing tech companies.</p>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-cloud" aria-hidden="true"></i>
+                    <h3>SaaS Companies</h3>
+                    <p>Protect cloud-based services and user data.</p>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-hospital" aria-hidden="true"></i>
+                    <h3>Healthcare</h3>
+                    <p>Ensure HIPAA compliance and patient data security.</p>
+                </div>
+                <div class="industry-item">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <h3>E-commerce</h3>
+                    <p>Safeguard transactions and customer information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Us Section -->
+    <section id="why-us" style="background-color: var(--light-grey);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Defend Strike</h2>
+                <p>Industry-leading expertise and proven results</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-card">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <h3>Proven Expertise</h3>
+                    <p>Certified security professionals with extensive experience in offensive and defensive security</p>
+                </div>
+                <div class="why-us-card">
+                    <i class="fas fa-bullseye" aria-hidden="true"></i>
+                    <h3>Precision Approach</h3>
+                    <p>Methodical assessment processes that identify real security risks</p>
+                </div>
+                <div class="why-us-card">
+                    <i class="fas fa-award" aria-hidden="true"></i>
+                    <h3>Trusted Partners</h3>
+                    <p>Fast-growing security partner delivering enterprise-level standards to startups and expanding organizations.</p>
+                </div>
+                <div class="why-us-card">
+                    <i class="fas fa-sync-alt" aria-hidden="true"></i>
+                    <h3>Continuous Support</h3>
+                    <p>Ongoing support and guidance throughout the remediation process</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our security experts</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Our security experts are ready to discuss your organization's security needs.</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:info@defendstrike.com">info@defendstrike.com</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (800) 333-3363</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="company" placeholder="Company Name">
+                        </div>
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="web">Web Security Assessment</option>
+                                <option value="mobile">Mobile Application Security Assessment</option>
+                                <option value="thick">Thick Client Security Assessment</option>
+                                <option value="api">API Security Assessment</option>
+                                <option value="network">Infrastructure / Network Security Assessment</option>
+                                <option value="cloud">Cloud Security Assessment</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <h1>Defend Strike</h1>
+                        <p class="tagline">Securing Tomorrow's Digital Landscape</p>
+                    </div>
+                    <p>Remote-First Team Based in Hyderabad, India</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/defendstrike"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/defendstrike"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/defendstrike"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Web Security</a></li>
+                        <li><a href="#services">Mobile Application Security</a></li>
+                        <li><a href="#services">Infrastructure / Network Security</a></li>
+                        <li><a href="#services">Cloud Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="/blog">Security Blog</a></li>
+                        <li><a href="/whitepapers">White Papers</a></li>
+                        <li><a href="/casestudies">Case Studies</a></li>
+                        <li><a href="/reports">Security Reports</a></li>
+                        <li><a href="/webinars">Webinars</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@defendstrike.com">info@defendstrike.com</a></li>
+                        <li><i class="fas fa-phone"></i> +1 (800) 333-3363</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Hyderabad, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Defend Strike. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
